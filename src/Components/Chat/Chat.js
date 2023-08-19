@@ -11,7 +11,7 @@ function Chat({own,item}) {
 
   const getUser=async()=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/users/${item.senderId}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/users/${item.senderId}`)
       setUser(data)
     } catch (error) {
       console.log(error)  

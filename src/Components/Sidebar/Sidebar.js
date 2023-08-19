@@ -15,7 +15,7 @@ function Sidebar() {
 
   const getAllUsers=async()=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/users/getusers/${user._id}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/users/getusers/${user._id}`)
       setUsers(data)
     } catch (error) {
       console.log(error)

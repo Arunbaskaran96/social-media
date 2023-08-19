@@ -11,7 +11,7 @@ function FriendsList({item,currentUser}) {
 
   const getUser=async()=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/users/${friendId}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/users/${friendId}`)
       setUser(data)
     } catch (error) {
       console.log(error)

@@ -17,7 +17,7 @@ function Profile() {
 
   const getUser=async()=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/users/${id}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/users/${id}`)
       setUser(data)
     } catch (error) {
       console.log(error)

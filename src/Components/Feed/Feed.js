@@ -17,7 +17,7 @@ function Feed({userId,userid}) {
  
   const getUserPost=async()=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/posts/userpost/${userId}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/posts/userpost/${userId}`)
       setPost(data.sort((a,b)=>{
         return new Date(b.createdAt) -new Date(a.createdAt) 
       }))
@@ -28,7 +28,7 @@ function Feed({userId,userid}) {
 
   const getPost=async()=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/posts/timeline/${user?._id}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/posts/timeline/${user?._id}`)
       setPost(data.sort((a,b)=>{
         return new Date(b.createdAt) -new Date(a.createdAt) 
       }))

@@ -54,7 +54,7 @@ function Message() {
 
   const getConversations=async()=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/conversation/${user?._id}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/conversation/${user?._id}`)
       setConversation(data)
     } catch (error) {
       console.log(error)
@@ -66,7 +66,7 @@ function Message() {
   },[currentChat])
   const getMesaage=async()=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/message/${currentChat?._id}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/message/${currentChat?._id}`)
       setMessage(data)
     } catch (error) {
       console.log(error)
@@ -93,7 +93,7 @@ function Message() {
 
 
     try {
-     const res= await axios.post('http://localhost:8000/api/message/newMessage',newMsg)
+     const res= await axios.post('https://social-media-backend-f9xi.onrender.com/api/message/newMessage',newMsg)
       setMessage([...messages,res.data])
       setNewMessage("")
     } catch (error) {

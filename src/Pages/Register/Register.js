@@ -20,7 +20,7 @@ function Register() {
     validate:()=>{},
     onSubmit:async(value)=>{
       try {
-        await axios.post("http://localhost:8000/api/auth/register",value)
+        await axios.post("https://social-media-backend-f9xi.onrender.com/api/auth/register",value)
         alert("Successfully Registered")
         nav("/")
       } catch (error) {

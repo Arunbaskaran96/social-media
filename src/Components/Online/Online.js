@@ -8,7 +8,7 @@ function Online({onlineusers,currentId,setCurrentChat}) {
   useEffect(()=>{
     const getFriends=async ()=>{
       try {
-        const {data}=await axios.get(`http://localhost:8000/api/posts/friends/${currentId}`)
+        const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/posts/friends/${currentId}`)
         setFriends(data)
       } catch (error) {
         console.log(error)
@@ -24,7 +24,7 @@ function Online({onlineusers,currentId,setCurrentChat}) {
 
   const handleClick=async(user)=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/conversation/find/${currentId}/${user._id}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/conversation/find/${currentId}/${user._id}`)
       console.log(data)
     } catch (error) {
       console.log(error)

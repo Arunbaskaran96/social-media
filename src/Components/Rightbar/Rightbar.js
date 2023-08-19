@@ -19,7 +19,7 @@ function Rightbar({profile,users}) {
     if(!users){
       const getFollowings=async()=>{
         try {
-          const {data}=await axios.get(`http://localhost:8000/api/posts/friends/${user?._id}`)
+          const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/posts/friends/${user?._id}`)
           setFollowings(data)
         } catch (error) {
           console.log(error)
@@ -29,7 +29,7 @@ function Rightbar({profile,users}) {
     }else{
       const getFollowings=async()=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/posts/friends/${users?._id}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/posts/friends/${users?._id}`)
       setFollowings(data)
     } catch (error) {
       console.log(error)
@@ -41,7 +41,7 @@ function Rightbar({profile,users}) {
 
   const getFollowings=async()=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/posts/friends/${users?._id}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/posts/friends/${users?._id}`)
       setFollowings(data)
     } catch (error) {
       console.log(error)
@@ -51,11 +51,11 @@ function Rightbar({profile,users}) {
   const handleClick=async()=>{
     try {
       if(isPresent){
-        await axios.put(`http://localhost:8000/api/users/${users?._id}/unfollow`,{userId:user._id})
+        await axios.put(`https://social-media-backend-f9xi.onrender.com/api/users/${users?._id}/unfollow`,{userId:user._id})
         dispatch({type:"unfollow",payload:users._id})
         
       }else{
-        await axios.put(`http://localhost:8000/api/users/${users?._id}/follow`,{userId:user._id})
+        await axios.put(`https://social-media-backend-f9xi.onrender.com/api/users/${users?._id}/follow`,{userId:user._id})
         dispatch({type:"follow",payload:users._id})
       }
       setIsPresent(!isPresent)

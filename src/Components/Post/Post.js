@@ -31,7 +31,7 @@ function Post({item}) {
 
   const getUser=async()=>{
     try {
-      const {data}=await axios.get(`http://localhost:8000/api/users/${item.userId}`)
+      const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/users/${item.userId}`)
       setUser(data)
     } catch (error) {
       console.log(error)
@@ -40,7 +40,7 @@ function Post({item}) {
 
   const likeHandler=async()=>{
     try {
-      axios.put(`http://localhost:8000/api/posts/${item._id}/like`,{userId:currentUser._id})
+      axios.put(`https://social-media-backend-f9xi.onrender.com/api/posts/${item._id}/like`,{userId:currentUser._id})
       setLike(isLiked ? like - 1 : like + 1);
       setisLiked(!isLiked);
     } catch (error) {
