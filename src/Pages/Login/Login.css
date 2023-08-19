@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: rgb(223, 219, 219);
 }
 
 .loginText{
@@ -13,7 +14,7 @@
 }
 .loginInput{
     width: 300px;
-    height: 25px;
+    height: 35px;
     border-radius: 15px;
 }
 
@@ -43,4 +44,31 @@
     cursor: pointer;
     text-decoration: none;
     padding: 5px 120px;
+}
+
+.loginLeftName{
+    color: blue;
+    font-size: 33px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.loginLeftDes{
+    font-size: 15px;
+}
+.loginLeft{
+    margin: 0px 30px 0px 0px;
+}
+
+.loginLeftImg{
+    height: 50px;
+    width: 50px;
+    margin-left: 200px;
+}
+
+.loginRightContainer{
+    background-color: whitesmoke;
+    padding: 35px;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 10px;
 }
