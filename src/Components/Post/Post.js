@@ -67,7 +67,7 @@ function Post({item}) {
         </div>
         <div className='postCenter'>
           <span className='postText'>{item.desc} </span>
-          <img className='postImage' src={`http://localhost:8000/images/${item.img}`} alt='posts' />
+          <img className='postImage' src={`https://social-media-backend-f9xi.onrender.com/images/${item.img}`} alt='posts' />
         </div>
         <div className='postBottom'>
           <div className='postBottomLeft'>

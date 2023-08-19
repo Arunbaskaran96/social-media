@@ -21,7 +21,7 @@ function Share() {
         data.append("name",fileName)
         newData.img=fileName
         try {
-            await axios.post("http://localhost:8000/upload",data)
+            await axios.post("https://social-media-backend-f9xi.onrender.com/upload",data)
         } catch (error) {
             console.log(error)
         }
@@ -29,7 +29,7 @@ function Share() {
         }
 
         try {
-            await axios.post("http://localhost:8000/api/posts",newData)
+            await axios.post("https://social-media-backend-f9xi.onrender.com/api/posts",newData)
             alert("Uploaded Successfully")
             window.location.reload()
         } catch (error) {
