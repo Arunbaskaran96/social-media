@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import "./Register.css"
 import { useFormik } from 'formik'
 import axios from 'axios'
@@ -6,49 +6,86 @@ import { useNavigate } from 'react-router-dom'
 
 function Register() {
   const nav=useNavigate()
-  const formik=useFormik({
-    initialValues:{
-      username:"",
-      email:"",
-      password:"",
-      confirmpassword:"",
-      from:"",
-      profilepicture:"",
-      coverpicture:"",
-      relationship:""
-    },
-    validate:()=>{},
-    onSubmit:async(value)=>{
+  const username=useRef(null)
+  const email=useRef(null)
+  const password=useRef(null)
+  const from=useRef(null)
+  const [profilePicture,setProfilePicture]=useState(null)
+  const [coverPicture,setCoverPicture]=useState(null)
+  const relationship=useRef(null)
+  const [disable,setDisable]=useState(false)
+
+  const handleSubmit=async(e)=>{
+    e.preventDefault()
+    setDisable(true)
+    const newData={
+      username:username.current.value,
+      email:email.current.value,
+      password:password.current.value,
+      from:from.current.value,
+      relationship:relationship.current.value
+    }
+    if(profilePicture){
+      const data=new FormData()
+      const fileName=profilePicture.name
+      data.append("file",profilePicture)
+      data.append("name",fileName)
+      newData.profilePicture=fileName
       try {
-        await axios.post("https://social-media-backend-f9xi.onrender.com/api/auth/register",value)
-        alert("Successfully Registered")
-        nav("/")
+        await axios.post("https://social-media-backend-f9xi.onrender.com/upload",data)
       } catch (error) {
         console.log(error)
       }
     }
-  })
+    if(coverPicture){
+      const data=new FormData()
+      const fileName=coverPicture.name
+      data.append("file",profilePicture)
+      data.append("name",fileName)
+      newData.coverPicture=fileName
+      try {
+        await axios.post("https://social-media-backend-f9xi.onrender.com/upload",data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    try {
+      setDisable(true)
+      await axios.post("https://social-media-backend-f9xi.onrender.com/api/auth/register",newData)
+      alert("Successfully Registered")
+      nav("/")
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
-    <div className='loginContainer'>
-        <form onSubmit={formik.handleSubmit}>
-          <label className='loginText' >Username</label><br/>
-          <input className='loginInput' type='text' name='username' value={formik.values.username} onChange={formik.handleChange}/><br/>
-          <label  className='loginText'>Email</label><br/>
-          <input className='loginInput' type='email' name='email' value={formik.values.email} onChange={formik.handleChange}/><br/>
-          <label className='loginText'>Password</label><br/>
-          <input className='loginInput' type='password' name='password' value={formik.values.password} onChange={formik.handleChange}/><br/>
-          <label className='loginText'>Confirm Password</label><br/>
-          <input className='loginInput' type='password' name='confirmpassword' value={formik.values.confirmpassword} onChange={formik.handleChange}/><br/>
-          <label className='loginText'>From</label><br/>
-          <input className='loginInput' type='text' name='from' value={formik.values.from} onChange={formik.handleChange}/><br/>
-          <label className='loginText'>Relationship</label><br/>
-          <input className='loginInput' type='text' name='relationship' value={formik.values.relationship} onChange={formik.handleChange}/><br/>
-          <label className='loginText'>Profile Picture</label><br/>
-          <input className='loginInput' type='text' name='profilepicture' value={formik.values.profilepicture} onChange={formik.handleChange}/><br/>
-          <label className='loginText'>Cover Picture</label><br/>
-          <input className='loginInput' type='text' name='coverpicture' value={formik.values.coverpicture} onChange={formik.handleChange}/><br/>
-          <input className='loginButton' type='submit' value="Submit"/><br/>
-        </form>
+    <div className='registerContainer'>
+      <form onSubmit={handleSubmit}>
+        <div className='registerWrapper'>
+        <div className='registerLeft'>
+        <label className='registerLabel'>User Name</label><br/>
+        <input className='registerInput' type='text' ref={username}/><br/>
+        <label className='registerLabel'>Email</label><br/>
+        <input className='registerInput' type='email' ref={email}/><br/>
+        <label className='registerLabel'>Password</label><br/>
+        <input className='registerInput' type='password' ref={password}/><br/>
+      </div>
+      <div className='registerRight'>
+        <label className='registerLabel'>Profile Picture : </label>
+        <input style={{marginLeft:"10px"}}  className='registerInput' type='file' onChange={(e)=>setProfilePicture(e.target.files[0])}/><br/>
+        <label className='registerLabel'>Cover Picture : </label>
+        <input style={{marginLeft:"10px"}} className='registerInput' type='file'  onChange={(e)=>setCoverPicture(e.target.files[0])} /><br/>
+        <label className='registerLabel'>From</label><br/>
+        <input className='registerInput' type='text'  ref={from}/><br/>
+        <label className='registerLabel'>Relationship</label><br/>
+        <input className='registerInput' type='text' ref={relationship} /><br/>
+      </div>
+        </div>
+        <div className='registerBottom'>
+          <button disabled={disable} className='registerButton'>Submit</button>
+        </div>
+      </form>
     </div>
   )
 }

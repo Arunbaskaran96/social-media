@@ -1,4 +1,4 @@
-.loginContainer{
+/* .loginContainer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,4 +25,44 @@
     width:300px ;
     border-radius: 15px;
     cursor: pointer;
+} */
+
+.registerContainer{
+    background-color: rgb(209, 205, 205);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.registerWrapper{
+    display: flex;
+    background-color: whitesmoke;
+    padding: 30px 30px 0px 30px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.registerLabel{
+    font-size: 20px;
+}
+.registerInput{
+    height: 30px;
+    width: 250px;
+}
+
+.registerLeft,.registerRight{
+    padding: 20px;
+}
+
+.registerBottom{
+    box-shadow: 5px 5px 5px black;
+    background-color: whitesmoke;
+    padding-bottom: 20px;
+}
+
+.registerButton{
+    background-color: green;
+    color: white;
+    padding: 10px 30px;
+    margin-left: 300px;
 }
