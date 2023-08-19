@@ -1,0 +1,38 @@
+.profile{
+    display: flex;
+}
+.profileRight{
+    flex: 10;
+    margin-top: 5px;
+}
+
+.profileRightbottom{
+    display: flex;
+    margin-top: 30px;
+}
+
+.coverPic{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.profileRighttop{
+    position: relative;
+}
+
+.profilPic{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    border: 1px solid wheat;
+}
+.userName{
+    font-size: 30px;
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 30px;
+}

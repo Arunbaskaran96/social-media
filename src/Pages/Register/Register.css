@@ -1,0 +1,28 @@
+.loginContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loginText{
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 5px;
+}
+.loginInput{
+    width: 300px;
+    height: 25px;
+    border-radius: 15px;
+}
+
+.loginButton{
+    background-color: green;
+    color: white;
+    padding: 8px;
+    margin-top: 8px;
+    width:300px ;
+    border-radius: 15px;
+    cursor: pointer;
+}

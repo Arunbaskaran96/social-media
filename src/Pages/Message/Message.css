@@ -1,0 +1,62 @@
+.messageWrapper{
+    display: flex;
+}
+.FriendsListWrapper{
+    flex: 3;
+}
+.ChatWrapper{
+    flex: 6;
+    padding: 10px 20px;
+}
+.OnlinetWrapper{
+    flex: 3;
+}
+.FriendsList{
+    font-size: 25px;
+    margin: 20px 10px;
+    text-align: center;
+}
+
+.FriendsListInt{
+    width: 80%;
+    height: 30px;
+    margin-left: 20px;
+    border: none;
+}
+.FriendsListInt:focus{
+    outline: none;
+}
+
+.messageTextArea{
+    width: 80%;
+    height: 60px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.chatTop{
+    height: 500px;
+    overflow-y: scroll;
+}
+.chatBottom{
+    display: flex;
+}
+
+.messageSentBtn{
+    height: 40px;
+    width: 50px;
+    background-color: green;
+    color: white;
+    margin-left: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.noconversationText{
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    justify-content: center;
+    color: rgb(175, 169, 169);
+}

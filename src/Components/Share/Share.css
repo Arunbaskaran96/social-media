@@ -1,0 +1,74 @@
+.shareContainer {
+  width: 90%;
+  border-radius: 10px;
+  margin: 15px 15px;
+  box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.37);
+}
+.shareWrapper {
+  padding: 10px;
+}
+.shareImg {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.shareTop {
+  display: flex;
+  align-items: center;
+}
+.sharebottom {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.shareOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.shareInput {
+  border: none;
+  width: 88%;
+}
+.shareInput:focus {
+  outline: none;
+}
+.shareOptionIcon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.shareOptionText {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.shareButton {
+  background-color: green;
+  padding: 10px;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+.shreImgwrapper{
+  position: relative;
+}
+
+.sharePostImg{
+  width: 100%;
+}
+
+.cancelShareImg{
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+}
+

@@ -1,0 +1,88 @@
+.rightbar-container{
+    flex: 3;
+}
+
+.rightbarWrapper{
+    padding: 20px 20px 0px 0px;
+}
+.birthdayImg{
+    height: 50px;
+    width: 100px;
+}
+.birthdayContainer{
+    display: flex;
+    align-items: center;
+}
+.rightBarFriendsLists{
+    list-style-type: none;
+    padding-left: 15px;
+}
+.rightBarFriendImage{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+.rightBarFriendContainer{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.rightBarFriendName{
+    font-size: 17px;
+    font-weight: 500;
+}
+.rightBarFriend{
+    margin-bottom: 18px;
+}
+.onlineIcon{
+    height: 13px;
+    width: 13px;
+    position: absolute;
+    left: 31px;
+    top: 0px;
+}
+
+.profileRightbarUser{
+    margin: 0px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.profileUserFriends{
+    font-size: 20px;
+    margin: 0px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+.userFollowingImg{
+    height: 60px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.userFollwings{
+    display: flex;
+    flex-wrap: wrap;
+}
+.userFollowing{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: space-around;
+}
+.actionButton{
+    padding: 8px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    margin-bottom: 10px;
+}
+.actionButton:focus{
+    outline: none;
+}
