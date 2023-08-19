@@ -69,18 +69,18 @@ function Rightbar({profile,users}) {
     
     return(
       <>
-        <div className='birthdayContainer'>
+        {/* <div className='birthdayContainer'>
           <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7_CEqlyGA40sRwSx1rrHqmODzIXk5YbgAyCF9DEXa&s' className='birthdayImg' alt='birthdayImg'/>
           <span className='birthdayText'> <b>Kavin</b> and <b>2 other friends</b> birthday today</span>
-        </div>
-        <h4 className='onlineFrnds'>Online Friends</h4>
+        </div> */}
+        <h4 className='onlineFrnds'>Your  Followings</h4>
         {
           followings.map((item)=>{
             return(
               <div className='userFollwings'>
               <Link to={`/profilepage/${item._id}`} style={{textDecoration:"none",color:"black"}}>
               <div className='userFollowing'>
-                <img className='userFollowingImg' src={item.profilePicture} alt='userFollwingImage'/>
+                <img className='userFollowingImg' src={`https://social-media-backend-f9xi.onrender.com/images/${item.profilePicture}`} alt='userFollwingImage'/>
                 <span className='UserFollowingName'>{item.username}</span>
               </div>
               </Link>

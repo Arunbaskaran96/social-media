@@ -23,7 +23,7 @@ function Register() {
       email:email.current.value,
       password:password.current.value,
       from:from.current.value,
-      relationship:relationship.current.value
+      realtionship:relationship.current.value
     }
     if(profilePicture){
       const data=new FormData()
@@ -40,7 +40,7 @@ function Register() {
     if(coverPicture){
       const data=new FormData()
       const fileName=coverPicture.name
-      data.append("file",profilePicture)
+      data.append("file",coverPicture)
       data.append("name",fileName)
       newData.coverPicture=fileName
       try {
@@ -59,6 +59,9 @@ function Register() {
     }
   }
 
+  const btncolor={
+    backgroundColor:"green"
+  }
   return (
     <div className='registerContainer'>
       <form onSubmit={handleSubmit}>
@@ -73,9 +76,9 @@ function Register() {
       </div>
       <div className='registerRight'>
         <label className='registerLabel'>Profile Picture : </label>
-        <input style={{marginLeft:"10px"}}  className='registerInput' type='file' onChange={(e)=>setProfilePicture(e.target.files[0])}/><br/>
+        <input style={{marginLeft:"10px"}}  className='registerInput' accept='.png,.jpeg,.img,.jpg' type='file' onChange={(e)=>setProfilePicture(e.target.files[0])}/><br/>
         <label className='registerLabel'>Cover Picture : </label>
-        <input style={{marginLeft:"10px"}} className='registerInput' type='file'  onChange={(e)=>setCoverPicture(e.target.files[0])} /><br/>
+        <input style={{marginLeft:"10px"}} className='registerInput' accept='.png,.jpeg,.img,.jpg' type='file'  onChange={(e)=>setCoverPicture(e.target.files[0])} /><br/>
         <label className='registerLabel'>From</label><br/>
         <input className='registerInput' type='text'  ref={from}/><br/>
         <label className='registerLabel'>Relationship</label><br/>
@@ -83,7 +86,7 @@ function Register() {
       </div>
         </div>
         <div className='registerBottom'>
-          <button disabled={disable} className='registerButton'>Submit</button>
+          <input style={!disable ? btncolor: null} disabled={disable} className='registerButton' type='submit' value="Submit"/>
         </div>
       </form>
     </div>

@@ -31,8 +31,8 @@ function Profile() {
       <Sidebar/>
       <div className='profileRight'>
         <div className='profileRighttop'>
-            <img className='coverPic' src={user.coverPicture} alt='coverPic'/>
-            <img className='profilPic' src={user.profilePicture} alt='profilePic'/>
+            <img className='coverPic' src={`https://social-media-backend-f9xi.onrender.com/images/${user.coverPicture}`} alt='coverPic'/>
+            <img className='profilPic' src={`https://social-media-backend-f9xi.onrender.com/images/${user.profilePicture}`} alt='profilePic'/>
             <h3 className='userName'>{user.userName}</h3>
         </div>
         <div className='profileRightbottom'>

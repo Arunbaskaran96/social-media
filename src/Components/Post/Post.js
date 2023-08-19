@@ -55,14 +55,14 @@ function Post({item}) {
         <div className='postTop'>
           <div className='postTopLeft'>
             <Link to={`/profilepage/${user._id}`}>
-            <img className='postPicture' src={user.profilePicture} alt='posts'/>
+            <img className='postPicture' src={`https://social-media-backend-f9xi.onrender.com/images/${user.profilePicture}`} alt='posts'/>
             </Link>
             <span className='postUsername'>{user.username}</span>
             <span className='postTime'>{format(item.createdAt)}</span>
           </div>
-          <div className='postTopRight'>
+          {/* <div className='postTopRight'>
           <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
+          </div> */}
           <div></div>
         </div>
         <div className='postCenter'>

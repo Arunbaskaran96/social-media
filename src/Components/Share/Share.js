@@ -45,7 +45,7 @@ function Share() {
         <div className='shareWrapper'>
             <div className='shareTop'>
                 <Link to={`/profilepage/${user._id}`}>
-                <img className='shareImg' src={user.profilePicture} alt='prfilepic'/>
+                <img className='shareImg' src={`https://social-media-backend-f9xi.onrender.com/images/${user.profilePicture}`} alt='prfilepic'/>
                 </Link>
                 <input ref={desc} placeholder={`Hello ${user.username}.. What's in your mind?`} className='shareInput'/>
             </div>

@@ -61,8 +61,8 @@
 }
 
 .registerButton{
-    background-color: green;
     color: white;
     padding: 10px 30px;
     margin-left: 300px;
+    cursor: pointer;
 }
