@@ -3,6 +3,7 @@ import "./Sidebar.css"
 import Friends from '../Friends/Friends'
 import axios from 'axios'
 import { AuthContext } from '../../context/AuthContext'
+import { Link } from 'react-router-dom'
 
 function Sidebar() {
   const [users,setUsers]=useState([])
@@ -26,12 +27,16 @@ function Sidebar() {
     <div className='sidebar-container'>
       <div className='sidebarWrapper'>
         <ul className='sidebarList'>
+          <Link className='sideBarLink' to="/homepage">
           <li className='sidebarListItem'>
             <span  className='sidebarListItemText'>Feed</span>
           </li>
+          </Link>
+          <Link className='sideBarLink' to="/message">
           <li className='sidebarListItem'>
             <span  className='sidebarListItemText'>Chats</span>
           </li>
+          </Link>
           {/* <li className='sidebarListItem'>
             <span  className='sidebarListItemText'>Videos</span>
           </li>

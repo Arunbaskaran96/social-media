@@ -11,7 +11,9 @@ function Post({item}) {
   const [user,setUser]=useState({})
   const {user:currentUser}=useContext(AuthContext)
   const[like,setLike]=useState(item.likes.length)
+  const[comment,setComment]=useState(item.comments.length)
   const[isLiked,setisLiked]=useState(false)
+
 
   useEffect(()=>{
     setisLiked(item.likes.includes(currentUser._id))
@@ -28,6 +30,11 @@ function Post({item}) {
     color:"black"
   }
 
+  console.log(comment)
+
+  // useEffect(()=>{
+  //   setComment(item.comments)
+  // },[comment])
 
   const getUser=async()=>{
     try {
@@ -72,11 +79,13 @@ function Post({item}) {
         <div className='postBottom'>
           <div className='postBottomLeft'>
             <i onClick={likeHandler} style={isLiked?liked:notLiked} class="fa-regular fa-thumbs-up likeImage"></i>
-            <span>{`${like} people like this post`}</span>
+            <span>{`${like} likes for this post`}</span>
           </div>
           <div className='postBottomRight'>
             <i class="fa-regular fa-comment likeImage"></i>
-            <span>people comment this post</span>
+            <Link className='linkbtn' to={`/comment/${item._id}`}>
+            <span>{`${comment} comments for this post`}</span>
+            </Link>
           </div>
         </div>
       </div>

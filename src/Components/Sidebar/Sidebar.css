@@ -71,3 +71,8 @@
 .sidebarInput:focus{
     outline: none;
 }
+.sideBarLink{
+    text-decoration:none;
+    color: black;
+    cursor: pointer;
+}

@@ -30,6 +30,7 @@ function Message() {
        console.log(data)
      })
    },[])
+   console.log(socket.current)
 
   useEffect(()=>{
     socket.current?.emit("adduser",user._id)

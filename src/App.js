@@ -7,6 +7,7 @@ import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
+import Comment from "./Components/comments/Comment"
 import Message from './Pages/Message/Message';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path='/homepage' element={user ? <Home/>: <Navigate to="/"/>}/>
       <Route path='/profilepage/:id' element={user ? <Profile/>: <Navigate to="/"/>} />
       <Route path='/message' element={user ? <Message/> : <Navigate to="/" />} />
+      <Route path='/comment/:id' element={user ? <Comment/> : <Navigate to="/"/>} />
     </Routes>
     </BrowserRouter>
   );
