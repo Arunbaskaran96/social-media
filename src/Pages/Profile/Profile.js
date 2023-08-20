@@ -10,6 +10,7 @@ import axios from 'axios'
 function Profile() {
   const {id}=useParams()
   const [user,setUser]=useState({})
+  const [isLoading,setLoading]=useState(false)
 
   useEffect(()=>{
     getUser()
@@ -17,8 +18,10 @@ function Profile() {
 
   const getUser=async()=>{
     try {
+      setLoading(true)
       const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/users/${id}`)
       setUser(data)
+      setLoading(false)
     } catch (error) {
       console.log(error)
     }
@@ -30,17 +33,24 @@ function Profile() {
     <div className='profile'>
       <Sidebar/>
       <div className='profileRight'>
-        <div className='profileRighttop'>
-            <img className='coverPic' src={`https://social-media-backend-f9xi.onrender.com/images/${user.coverPicture}`} alt='coverPic'/>
-            <img className='profilPic' src={`https://social-media-backend-f9xi.onrender.com/images/${user.profilePicture}`} alt='profilePic'/>
-            <h3 className='userName'>{user.userName}</h3>
-        </div>
-        <div className='profileRightbottom'>
-            <Feed profile userId={id}/>
-            <Rightbar profile users={user}/>
-        </div>
+    {
+      isLoading ? 
+      <div className='profileLoading'>Loading... Please Wait</div>
+      :
+      <>
+      <div className='profileRighttop'>
+        <img className='coverPic' src={`https://social-media-backend-f9xi.onrender.com/images/${user.coverPicture}`} alt='coverPic'/>
+        <img className='profilPic' src={`https://social-media-backend-f9xi.onrender.com/images/${user.profilePicture}`} alt='profilePic'/>
+        <h3 className='userName'>{user.userName}</h3>
       </div>
+      <div className='profileRightbottom'>
+        <Feed profile userId={id}/>
+        <Rightbar profile users={user}/>
+      </div>
+      </>
 
+    }
+    </div>
     </div>
   </>
   )

@@ -9,6 +9,7 @@ import { AuthContext } from '../../context/AuthContext'
 function Feed({userId,userid}) {
   const {user}=useContext(AuthContext)
   const [post,setPost]=useState([])
+  const [isLoading,setLoading]=useState(false)
   useEffect(()=>{
     userId ? getUserPost() : getPost()
   },[userId,user._id])
@@ -17,10 +18,12 @@ function Feed({userId,userid}) {
  
   const getUserPost=async()=>{
     try {
+      setLoading(true)
       const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/posts/userpost/${userId}`)
       setPost(data.sort((a,b)=>{
         return new Date(b.createdAt) -new Date(a.createdAt) 
       }))
+      setLoading(false)
     } catch (error) {
       console.log(error)
     }
@@ -28,10 +31,12 @@ function Feed({userId,userid}) {
 
   const getPost=async()=>{
     try {
+      setLoading(true)
       const {data}=await axios.get(`https://social-media-backend-f9xi.onrender.com/api/posts/timeline/${user?._id}`)
       setPost(data.sort((a,b)=>{
         return new Date(b.createdAt) -new Date(a.createdAt) 
       }))
+      setLoading(false)
     } catch (error) {
       console.log(error)
     }
@@ -41,18 +46,23 @@ function Feed({userId,userid}) {
 
   return (
     <div className='feed-container'>
-      <div className='feedWrapper'>
+      {
+        isLoading ? 
+        <div className='feedLoading'>Loading... Please Wait</div>
+        :
+        <div className='feedWrapper'>
         {
           userId===user._id && <Share/> ||userid===user._id && <Share/>
         }
         {
-          post && post.map((item)=>{
+          post.length>0 ? post.map((item)=>{
             return(
               <Post key={item._id} item={item}/>
             )
-          })
+          }) : <h6 className='feedPost'>No Post Shared</h6>
         }
       </div>
+      }
     </div>
   )
 }

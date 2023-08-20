@@ -74,6 +74,7 @@ function Rightbar({profile,users}) {
           <span className='birthdayText'> <b>Kavin</b> and <b>2 other friends</b> birthday today</span>
         </div> */}
         <h4 className='onlineFrnds'>Your  Followings</h4>
+        <div style={{display:"flex",flexWrap:"wrap"}}>
         {
           followings.map((item)=>{
             return(
@@ -88,6 +89,7 @@ function Rightbar({profile,users}) {
             )
           })
         }
+        </div>
         </>
     )
   }
@@ -116,7 +118,7 @@ function Rightbar({profile,users}) {
               <div className='userFollwings'>
               <Link to={`/profilepage/${item._id}`} style={{textDecoration:"none",color:"black"}}>
               <div className='userFollowing'>
-                <img className='userFollowingImg' src={item.profilePicture} alt='userFollwingImage'/>
+                <img className='userFollowingImg' src={`https://social-media-backend-f9xi.onrender.com/images/${item.profilePicture}`} alt='userFollwingImage'/>
                 <span className='UserFollowingName'>{item.username}</span>
               </div>
               </Link>

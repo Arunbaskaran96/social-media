@@ -1,3 +1,14 @@
 .feed-container{
     flex: 6;
 }
+.feedPost{
+    font-size: 25px;
+    text-align: center;
+    margin-top: 40px;
+}
+.feedLoading{
+    font-size: 30px;
+    color: rgb(163, 158, 158);
+    text-align: center;
+    margin-top: 50px;
+}

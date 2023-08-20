@@ -7,6 +7,7 @@ import { AuthContext } from '../../context/AuthContext'
 function Sidebar() {
   const [users,setUsers]=useState([])
   const {user}=useContext(AuthContext)
+  const [search,setSearch]=useState("")
 
   useEffect(()=>{
     getAllUsers()
@@ -31,7 +32,7 @@ function Sidebar() {
           <li className='sidebarListItem'>
             <span  className='sidebarListItemText'>Chats</span>
           </li>
-          <li className='sidebarListItem'>
+          {/* <li className='sidebarListItem'>
             <span  className='sidebarListItemText'>Videos</span>
           </li>
           <li className='sidebarListItem'>
@@ -51,13 +52,16 @@ function Sidebar() {
           </li>
           <li className='sidebarListItem'>
             <span  className='sidebarListItemText'>Courses</span>
-          </li>
+          </li> */}
         </ul>
-        <button className='sidebarButton'>Show More</button>
+        {/* <button className='sidebarButton'>Show More</button> */}
+        <hr className='sidebarhr'/>
+        <h3 className='sidebarUsers'>All User's</h3>
+        <input className='sidebarInput' type='text'  placeholder='Search Users Here...' onChange={(e)=>setSearch(e.target.value)}/>
         <hr className='sidebarhr'/>
         <ul className='sidebarFriendsList'>
           {
-            users.map((item)=>{
+            users.filter(item=>item.username.toLowerCase().includes(search.toLowerCase())).map((item)=>{
               return(
                 <Friends item={item} />
               )

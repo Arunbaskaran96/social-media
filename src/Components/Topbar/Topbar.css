@@ -79,11 +79,17 @@
     color: white;
     cursor: pointer;
     border: none;
+    margin-top: 7px;
 }
 .logoutButton:focus{
     outline: none;
 }
 
-
+.topbarPicture{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
 
