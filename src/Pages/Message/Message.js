@@ -20,7 +20,7 @@ function Message() {
   const socket=useRef()
 
   useEffect(()=>{
-    socket.current= io("ws://social-media-socket-cvjt.onrender.com")
+    socket.current= io("https://social-media-socket-cvjt.onrender.com")
      socket.current?.on("getmessage",(data)=>{
        setArrivalMessage({
          senderId:data.senderId,
