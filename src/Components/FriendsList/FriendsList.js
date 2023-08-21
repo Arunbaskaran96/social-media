@@ -20,7 +20,7 @@ function FriendsList({item,currentUser}) {
   return (
     <div className='friendlistContainer'>
         <div className='friendlistWrapper'>
-            <img className='friendProfileImg' src={user.profilePicture} alt='friendImg'/>
+            <img className='friendProfileImg' src={`https://social-media-backend-f9xi.onrender.com/images/${user.profilePicture}`} alt='friendImg'/>
             <h5 className='friendProfileName'>{user.username}</h5>
         </div>
     </div>
