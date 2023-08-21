@@ -20,7 +20,7 @@ function Chat({own,item}) {
   return (
     <div className={own ? "message own" :"message"}>
       <div className='messageTop'>
-        <img className='messageImg' src={user?.profilePicture} alt='profilePicture'/>
+        <img className='messageImg' src={`https://social-media-backend-f9xi.onrender.com/images/${user?.profilePicture}`} alt='profilePicture'/>
         <p className='messageText'>{item.message}</p>
       </div>
       <div className='messageBottom'>{format(item.createdAt)}</div>
