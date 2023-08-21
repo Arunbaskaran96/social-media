@@ -57,6 +57,10 @@ function Rightbar({profile,users}) {
       }else{
         await axios.put(`https://social-media-backend-f9xi.onrender.com/api/users/${users?._id}/follow`,{userId:user._id})
         dispatch({type:"follow",payload:users._id})
+        await axios.post("https://social-media-backend-f9xi.onrender.com/api/conversation/",{
+          senderId:user._id,
+          receiverId:users._id
+        })
       }
       setIsPresent(!isPresent)
     } catch (error) {
